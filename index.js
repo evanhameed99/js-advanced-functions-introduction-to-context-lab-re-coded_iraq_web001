@@ -53,3 +53,26 @@ let wagesEarnedOnDate = (employee, dateStamp) => {
 
   return parseFloat(wages.toString())
 };
+let allWagesFor = function (employee) {
+  let matchedDates = employee.timeInEvents.map(function (elem) {
+    return elem.date;
+  });
+
+  let paid = matchedDates.reduce(function (memo, d) {
+    return memo + wagesEarnedOnDate(employee, d);
+  }, 0);
+
+  return paid;
+};
+
+let findEmployeeByFirstName = function (records, firstName) {
+  return records.find(function (rec) {
+    return rec.firstName === firstName;
+  });
+};
+
+let calculatePayroll = (records) => {
+  return records.reduce(function (memo, rec) {
+    return memo + allWagesFor(rec);
+  }, 0);
+};
