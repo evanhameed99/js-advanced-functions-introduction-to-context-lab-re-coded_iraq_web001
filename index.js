@@ -36,13 +36,13 @@ let createTimeOutEvent = function(employee, dateStamp){
 
     return employee
 }
-let hoursWorkedOnDate = function(employee, Date){
+let hoursWorkedOnDate = function(employee, dateStamp){
     let inEvent = employee.timeInEvents.find(function(e){
-        return e.date === Date
+        return e.date === dateStamp
     })
 
     let outEvent = employee.timeOutEvents.find(function(e){
-        return e.date === Date
+        return e.date === dateStamp
     })
     let timeElapsed = outEvent.hour - inEvent.hour;
     return timeElapsed / 100
