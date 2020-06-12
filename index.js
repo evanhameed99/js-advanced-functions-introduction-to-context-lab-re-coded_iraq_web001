@@ -24,4 +24,3 @@ function createTimeInEvent(employee, dateStamp) {
   });
   return employee;
 }
-
