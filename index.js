@@ -1,11 +1,16 @@
 // Your code here
-function createEmployeeRecord(arr){
-return {
-   firstName = arr[0];
-   familyName = arr[1];
-   title = arr[2];
-   payPerHour = arr[3];
+function createEmployeeRecord(array) {
+  return {
+    firstName: array[0],
+    familyName: array[1],
+    title: array[2],
+    payPerHour: array[3],
+    timeInEvents: [],
+    timeOutEvents: [],
+  };
+}
 
-   timeInEvents = [];
-   timeOutEvents = [];
-}}
+function createEmployeeRecords(array){
+let records = array.map(obj=> createEmployeeRecord(obj))
+return records
+}
