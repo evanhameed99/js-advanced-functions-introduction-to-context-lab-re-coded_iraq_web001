@@ -47,3 +47,9 @@ let hoursWorkedOnDate = function(employee, dateStamp){
     let timeElapsed = outEvent.hour - inEvent.hour;
     return timeElapsed / 100
 }
+let wagesEarnedOnDate = (employee, dateStamp) => {
+  let hours = hoursWorkedOnDate(employee, dateStamp);
+  let wages = hours* employee.payPerHour;
+
+  return parseFloat(wages.toString())
+};
