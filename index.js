@@ -15,7 +15,7 @@ let records = array.map(obj=> createEmployeeRecord(obj))
 return records
 }
 
-let createTimeInEvent = function(employee, dateStamp){
+let createTimeInEvent = (employee, dateStamp)=>{
     let [date, hour] = dateStamp.split(' ')
 
     employee.timeInEvents.push({
@@ -25,7 +25,7 @@ let createTimeInEvent = function(employee, dateStamp){
 
     return employee
 }
-let createTimeOutEvent = function(employee, dateStamp){
+let createTimeOutEvent = (employee, dateStamp)=>{
     let [date, hour] = dateStamp.split(' ')
 
     employee.timeOutEvents.push({
@@ -36,13 +36,13 @@ let createTimeOutEvent = function(employee, dateStamp){
 
     return employee
 }
-let hoursWorkedOnDate = function(employee, dateStamp){
-    let inEvent = employee.timeInEvents.find(function(e){
-        return e.date === dateStamp
+let hoursWorkedOnDate = (employee, dateStamp)=>{
+    let inEvent = employee.timeInEvents.find(function(elem){
+        return elem.date === dateStamp
     })
 
-    let outEvent = employee.timeOutEvents.find(function(e){
-        return e.date === dateStamp
+    let outEvent = employee.timeOutEvents.find(function(elem){
+        return elem.date === dateStamp
     })
     let timeElapsed = outEvent.hour - inEvent.hour;
     return timeElapsed / 100
@@ -53,19 +53,19 @@ let wagesEarnedOnDate = (employee, dateStamp) => {
 
   return parseFloat(wages.toString())
 };
-let allWagesFor = function (employee) {
+let allWagesFor =  (employee)=> {
   let matchedDates = employee.timeInEvents.map(function (elem) {
     return elem.date;
   });
 
-  let paid = matchedDates.reduce(function (memo, d) {
+  let paid = matchedDates.reduce( (memo, d)=> {
     return memo + wagesEarnedOnDate(employee, d);
   }, 0);
 
   return paid;
 };
 
-let findEmployeeByFirstName = function (records, firstName) {
+let findEmployeeByFirstName =  (records, firstName) =>{
   return records.find(function (rec) {
     return rec.firstName === firstName;
   });
