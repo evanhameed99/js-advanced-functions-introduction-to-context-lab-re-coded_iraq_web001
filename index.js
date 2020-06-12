@@ -44,6 +44,5 @@ let inEvent = employee.timeInEvents.find(elem=>{
 let outEvent = employee.timeOutEvents.find(elem=>{
     return elem.date === dateStamp;
 })
-let hoursElapsed = outEvent.hour = inEvent.hour;
-return hoursElapsed / 100 ;
+ return (outEvent.hour = inEvent.hour)/100
 }
